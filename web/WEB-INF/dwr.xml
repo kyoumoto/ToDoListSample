@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE dwr PUBLIC
+    "-//GetAhead Limited//DTD Direct Web Remoting 3.0//EN"
+    "http://getahead.org/dwr//dwr30.dtd">
+
+<!-- DWRを使うときに，JavaScriptから呼び出したい Java プログラムを指定する． -->
+<dwr>
+  <allow>
+    <create creator="new" javascript="LoginController">
+      <param name="class" value="jp.todo.controller.LoginController"/>
+    </create>
+    <create creator="new" javascript="DisplayToDoListController">
+      <param name="class" value="jp.todo.controller.DisplayToDoListController"/>
+    </create>
+    <create creator="new" javascript="RegisterTicketController">
+      <param name="class" value="jp.todo.controller.RegisterTicketController"/>
+    </create>
+    <create creator="new" javascript="AccountController">
+      <param name="class" value="jp.todo.controller.AccountController"/>
+    </create>
+    <create creator="new" javascript="ProjectController">
+      <param name="class" value="jp.todo.controller.ProjectController"/>
+    </create>
+    <convert converter="bean" match="jp.todo.controller.*" />
+    <convert converter="bean" match="jp.enpit.cloud.csprinter.*" />
+    <convert converter="exception" match="java.lang.Exception" />
+    <convert converter="bean" match="java.lang.StackTraceElement"/>
+  </allow>
+</dwr>

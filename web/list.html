@@ -1,0 +1,103 @@
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>作業一覧</title>
+        <link rel="STYLESHEET" href="css/todo.css" type="text/css">
+        <script type="text/javascript" src="dwr/engine.js"></script>
+        <script type="text/javascript" src="dwr/util.js"></script>
+        <script type="text/javascript" src="dwr/interface/DisplayToDoListController.js"></script>
+        <script type="text/javascript" src="dwr/interface/AccountController.js"></script>
+        <script type="text/javascript" src="js/login.js"></script>
+        <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery.cookie.js"></script>
+        <script type="text/javascript" src="js/jquery.serialize.js"></script>
+        <script>
+            function updateToDoList(){
+                DisplayToDoListController.execute({
+                    callback: function(ToDoList){
+                        list = "";
+                        for(var i in ToDoList){
+                            var ToDo = ToDoList[i];
+                            list = list + '<tr>';
+                            list = list + '<td>' + ToDo.title + '</td>';
+                            list = list + '<td>' + ToDo.responsible + '</td>';
+                            list = list + '<td>' + ToDo.deadline + '</td>';
+                            list = list + '<td>' + ToDo.projectName + '</td>';
+                            list = list + '<td>' + ToDo.state + '</td>';
+                            list = list + ' <form action="edit.html"><td align="center"><input type="submit" value="編集"></td></form><form action="delete.html"><td align="center"><input type="submit" value="削除"></td></form>';
+                            list = list + '<tr>';
+                        }
+                        $('#ToDoList').html(list);                        
+                    }
+                });
+            };
+            function hello(){
+                AccountController.getAccount({
+                    callback: function(account){
+                        $("#hello_user").html(account.userId);
+                    }
+                });
+                updateToDoList();                
+            }
+        </script>
+    </head>
+    <body onload="hello()">
+        <h1>作業一覧</h1>
+        <hr>
+        <div align="right">
+            ようこそ <span id="hello_user"> </span> さん
+        </div>
+        <!-- 作業登録・検索 -->
+        <table border="0" width="90%" class="toolbar">
+            <tr>
+                <form action="add.html">
+                    <td>
+                        <input type="submit" value="作業登録">
+                    </td>
+                </form>
+                <td align="right">
+                    <table border="0">
+                        <tr>
+                            <td>
+                                検索キーワード
+                            </td>
+                            <form action="search.html">
+                                <td>
+                                    <input type="text" name="keyword" value="" size="24">
+                                </td>
+                                <td>
+                                    <input type="submit" value="検索">
+                                </td>
+                            </form>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <table border="0" width="90%" class="list">
+            <thead>                
+                <th>
+                    項目名
+                </th>
+                <th>
+                    担当者
+                </th>
+                <th>
+                    期限
+                </th>
+                <th>
+                    プロジェクト名
+                </th>
+                <th>
+                    状態
+                </th>
+                <th colspan="3">
+                操作
+                </th>
+            </tr>
+            </thead>
+            <tbody id="ToDoList">
+            </tbody>
+        </table>
+    </body>
+</html>

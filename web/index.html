@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>ログイン</title>
+        <link rel="STYLESHEET" href="css/todo.css" type="text/css">
+        <script type="text/javascript" src="dwr/engine.js"></script>
+        <script type="text/javascript" src="dwr/util.js"></script>
+        <script type="text/javascript" src="dwr/interface/LoginController.js"></script>
+        <script type="text/javascript" src="js/login.js"></script>
+        <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery.cookie.js"></script>
+        <script type="text/javascript" src="js/jquery.serialize.js"></script>
+        <script>
+            function Login(){
+                var form_data = $("#form_login").serializeJson();
+                LoginController.execute(JSON.stringify(form_data), {
+                    callback: function(flg){
+                        if(flg) $("#form_login").submit();
+                        else{
+                            // debug: もう少しいい方法に変える
+                            $("#retLogin").html("あなたは未登録ユーザです.")
+                        }
+                    }
+                });
+            }
+        </script>
+    </head>
+    <body onload="fieldChanged();">
+        <h1>ログイン</h1>
+        <hr>
+        <div align="center">
+            <form action="list.html" id="form_login">
+                <table border="0">
+                    <tr>
+                        <th class="login_field">
+                            ユーザID
+                        </th>
+                        <td class="login_field">
+                            <input type="text" name="userId" value="" 
+							size="24" id="user_id" 
+							onkeyup="fieldChanged();" 
+							onchange="fieldChanged();">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="login_field">
+                            パスワード
+                        </th>
+                        <td class="login_field">
+                            <input type="password" name="pass" value="" 
+							size="24" id="password" 
+							onkeyup="fieldChanged();" 
+							onchange="fieldChanged();">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="login_button">
+                            <input type="button" value="ログイン" id="login" onclick="Login()">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <font color="red" id="retLogin">
+            </font>
+        </div>
+    </body>
+</html>

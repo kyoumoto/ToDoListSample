@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>作業更新</title>
+        <link rel="STYLESHEET" href="css/todo.css" type="text/css">
+    </head>
+    <body>
+        <h1>作業更新</h1>
+        <hr>
+        <div align="center">
+            <table border="0">
+                <form action="list.html">
+                    <tr>
+                        <th class="add_field">
+                            項目名
+                        </th>
+                        <td class="add_field">
+                            <input type="text" name="name" value="" size="24">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="add_field">
+                            担当者
+                        </th>
+                        <td class="add_field">
+                            <select name="user_id" size="1">
+                                <option value="user1_id" selected>ユーザ1</option>
+                                <option value="user2_id">ユーザ2</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="add_field">
+                            期限
+                        </th>
+                        <td class="add_field">
+                            <input type="text" name="year" value="" size="8">/<input type="text" name="month" value="" size="4">/<input type="text" name="day" value="" size="4">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="add_field">
+                            プロジェクト名
+                        </th>
+                        <td class="add_field">
+                            <input type="text" name="name" value="" size="24">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="add_field">
+                            状態
+                        </th>
+                        <td class="add_field">
+                            <select name="user_id" size="1">
+                                <option value="To Do" selected>ToDo</option>
+                                <option value="Doing">Doing</option>
+                                <option value="Done">Done</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="add_button">
+                            <table border="0">
+                                <tr>
+                                    <td>
+                                        <input type="submit" value="更新">
+                                    </td>
+                                    </form>
+                                    <form action="list.html">
+                                    <td>
+                                        <input type="submit" value="キャンセル">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </form>
+            </table>
+        </div>
+    </body>
+</html>
+
