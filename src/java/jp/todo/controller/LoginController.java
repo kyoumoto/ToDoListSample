@@ -2,9 +2,7 @@ package jp.todo.controller;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import jp.todo.view.IdentifyingAccountForm;
 import jp.todo.view.TEMValidationException;
-import jp.todo.view.ValidatedBean;
 import com.google.gson.Gson;
 import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
@@ -22,7 +20,7 @@ import org.directwebremoting.WebContext;
 import org.directwebremoting.WebContextFactory;
 import jp.todo.controller.Account;
 
-public class LoginController extends IdentifyingAccountForm
+public class LoginController
 {
     public LoginController(){        
     }
