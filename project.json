@@ -1,0 +1,4 @@
+{"_id":{"$oid":"57844df83646b32f9653d58e"},"projectName":"projectM","members":["matsushita","user1","user2"]}
+{"_id":{"$oid":"57844e173646b32f9653d58f"},"projectName":"project1","members":["user1","user2","user3"]}
+{"_id":{"$oid":"57844e2c3646b32f9653d590"},"projectName":"p1","members":["matsushita","user10","user2"]}
+{"_id":{"$oid":"57844e523646b32f9653d591"},"projectName":"p2","members":["user3","user1","user2"]}

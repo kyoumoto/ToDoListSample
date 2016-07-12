@@ -23,7 +23,7 @@ public class RegisterTicketController{
             // MongoDBサーバに接続
             MongoClient client = new MongoClient("localhost", 27017);
             // 利用するDBを取得
-            DB db = client.getDB( "todo" );
+            DB db = client.getDB( "todosample" );
             // collention の指定
             DBCollection coll = db.getCollection("ticket");
             // dco の作成
